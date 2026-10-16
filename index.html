@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodPet 🐾 | Your Little Happiness Buddy</title>
+  <meta name="description" content="A cute virtual pet and mood journal to help you check in with yourself every day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#" aria-label="MoodPet home">🐾 Mood<span>Pet</span></a>
+    <span class="tagline">Your little happiness buddy 💜</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome card">
+      <div>
+        <p class="eyebrow">A LITTLE LOVE, EVERY DAY</p>
+        <h1>Your mood deserves<br>a little <span>love.</span></h1>
+        <p class="muted">Meet your virtual friend. Care for your pet, share your feelings, and celebrate little moments.</p>
+        <a class="button primary" href="#my-pet">Meet your pet ↓</a>
+      </div>
+      <div class="welcome-art" aria-label="Cute puppy">🐶<span>💗</span></div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat card">
+        <span class="stat-icon">💜</span>
+        <div><p>Friendship points</p><strong id="points">0</strong></div>
+      </article>
+      <article class="stat card">
+        <span class="stat-icon">🌷</span>
+        <div><p>Care actions today</p><strong id="care-count">0 / 3</strong></div>
+      </article>
+      <article class="stat card">
+        <span class="stat-icon">🌈</span>
+        <div><p>Current level</p><strong id="level">Little Friend</strong></div>
+      </article>
+    </section>
+
+    <section class="section" id="my-pet">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR BESTIE</p><h2>Meet your pet 🐾</h2></div>
+        <span class="pill" id="pet-status">Waiting for cuddles</span>
+      </div>
+
+      <div class="pet-layout">
+        <article class="pet-card card">
+          <div class="pet-scene">
+            <span class="sparkle sparkle-one">✦</span>
+            <span class="sparkle sparkle-two">✧</span>
+            <div class="pet-face" id="pet-face">🐶</div>
+            <div class="pet-message" id="pet-message">You make my little world brighter!</div>
+          </div>
+          <label for="pet-name">Give your pet a name</label>
+          <div class="name-row">
+            <input id="pet-name" type="text" maxlength="18" placeholder="Name your pet">
+            <button class="button primary" id="save-name">Save</button>
+          </div>
+          <h3 id="pet-title">Your little bestie</h3>
+          <p class="muted">Friendship level: <strong id="friendship">0%</strong></p>
+          <div class="progress"><div id="friendship-bar"></div></div>
+        </article>
+
+        <article class="care-card card">
+          <p class="eyebrow">SPREAD SOME LOVE</p>
+          <h3>What shall we do today?</h3>
+          <p class="muted">Every little act of care brings you closer.</p>
+          <div class="care-actions">
+            <button class="care-button" data-care="feed"><span>🦴</span><strong>Feed</strong><small>Yummy treats</small></button>
+            <button class="care-button" data-care="play"><span>🎾</span><strong>Play</strong><small>Let's have fun</small></button>
+            <button class="care-button" data-care="love"><span>🤗</span><strong>Cuddle</strong><small>Give some love</small></button>
+          </div>
+          <p class="tip" id="care-tip">✨ Try all three care actions today!</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">CHECK IN WITH YOURSELF</p><h2>How are you feeling? 🌼</h2></div>
+      </div>
+      <article class="card mood-card">
+        <p class="muted">All feelings are welcome here. Choose the one that fits today.</p>
+        <div class="mood-grid" id="mood-options">
+          <button class="mood-option" data-mood="Happy"><span>😊</span>Happy</button>
+          <button class="mood-option" data-mood="Calm"><span>😌</span>Calm</button>
+          <button class="mood-option" data-mood="Okay"><span>🙂</span>Okay</button>
+          <button class="mood-option" data-mood="Sad"><span>🥺</span>Sad</button>
+          <button class="mood-option" data-mood="Tired"><span>😴</span>Tired</button>
+          <button class="mood-option" data-mood="Anxious"><span>🫣</span>Anxious</button>
+        </div>
+        <label for="mood-note">Anything you want to say about today? (Optional)</label>
+        <textarea id="mood-note" rows="3" maxlength="300" placeholder="Today I feel..."></textarea>
+        <button class="button primary" id="save-mood">Save today's mood 💜</button>
+        <p class="feedback" id="mood-feedback" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR LITTLE CORNER</p><h2>My happy diary 📔</h2></div>
+      </div>
+      <article class="card diary-card">
+        <p class="muted">Write a thought, a happy moment, or something you want to let go of.</p>
+        <label for="diary-entry">Dear diary...</label>
+        <textarea id="diary-entry" rows="5" maxlength="1500" placeholder="Today, something that mattered to me was..."></textarea>
+        <div class="diary-footer">
+          <small id="diary-date"></small>
+          <button class="button primary" id="save-diary">Save my note ✨</button>
+        </div>
+        <p class="feedback" id="diary-feedback" aria-live="polite"></p>
+        <div class="saved-note">
+          <h3>My last saved note</h3>
+          <p id="last-note" class="muted">Your diary is waiting for your first note.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">LITTLE WINS MATTER</p><h2>Your rewards 🏆</h2></div>
+      </div>
+      <div class="rewards-grid">
+        <article class="reward card" id="reward-first"><span>🌱</span><h3>First Steps</h3><p>Care for your pet once.</p><small>Unlock with 1 care action</small></article>
+        <article class="reward card" id="reward-care"><span>💖</span><h3>Care Champion</h3><p>Complete all 3 care actions in a day.</p><small>Unlock with 3 care actions</small></article>
+        <article class="reward card" id="reward-mood"><span>🌈</span><h3>Feeling Finder</h3><p>Record your mood for the day.</p><small>Unlock with a mood check-in</small></article>
+        <article class="reward card" id="reward-diary"><span>📔</span><h3>Little Storyteller</h3><p>Write your first diary note.</p><small>Unlock with a diary note</small></article>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made with 💜 for little moments of happiness.</p>
+      <p class="footer-small">MoodPet is a self-reflection companion, not a substitute for professional care.</p>
+      <button class="text-button" id="reset-app">Reset my app data</button>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
